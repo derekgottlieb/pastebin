@@ -16,8 +16,13 @@ class Pastebin
   get "/:name" do |env|
     name = env.params.url["name"]
     path = "files/#{name}"
-    paste = File.read(path)
-    render "src/views/paste.ecr", "src/views/layouts/paste.ecr"
+    if File.exists?(path)
+      paste = File.read(path)
+      render "src/views/paste.ecr", "src/views/layouts/paste.ecr"
+    else
+      text = "Paste not found: #{name}"
+      render "src/views/page.ecr", "src/views/layouts/page.ecr"
+    end
   end
 
   post "/" do |env|
@@ -32,6 +37,14 @@ class Pastebin
 
   def run
     Kemal.run(@port)
+  end
+
+  error 404 do
+    "404: Not Found"
+  end
+
+  error 500 do
+    "500: Server Error"
   end
 end
 
