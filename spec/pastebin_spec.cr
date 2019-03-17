@@ -1,6 +1,6 @@
 require "./spec_helper"
 
-describe Pastebin.crystal do
+describe Pastebin do
   # TODO: Write tests
 
   it "works" do

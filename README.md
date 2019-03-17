@@ -1,4 +1,4 @@
-# pastebin.crystal
+# pastebin
 
 TODO: Write a description here
 
@@ -8,7 +8,10 @@ TODO: Write installation instructions here
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+crystal run src/pastebin.cr
+curl -i -X POST -F file=@app.rb localhost:3000
+```
 
 ## Development
 
@@ -16,7 +19,7 @@ TODO: Write development instructions here
 
 ## Contributing
 
-1. Fork it (<https://github.com/derekgottlieb/pastebin.crystal/fork>)
+1. Fork it (<https://github.com/derekgottlieb/pastebin/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
