@@ -7,12 +7,6 @@ class Pastebin
   def initialize(@port = 3000)
   end
 
-  get "/assets/:name" do |env|
-      name = env.params.url["name"]
-      path = "assets/#{name}"
-      File.read(path)
-  end
-
   get "/:name" do |env|
     name = env.params.url["name"]
     path = "files/#{name}"
