@@ -1,12 +1,12 @@
-name: pastebin.crystal
+name: pastebin
 version: 0.1.0
 
 authors:
   - Derek Gottlieb <derek.gottlieb@gmail.com>
 
 targets:
-  pastebin.crystal:
-    main: src/pastebin.crystal.cr
+  pastebin:
+    main: src/pastebin.cr
 
 crystal: 0.27.1
 
