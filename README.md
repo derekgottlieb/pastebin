@@ -10,7 +10,11 @@ TODO: Write installation instructions here
 
 ```
 crystal run src/pastebin.cr
-curl -i -X POST -F file=@app.rb localhost:3000
+```
+
+Add new paste by uploading a file via the command-line:
+```
+curl -i -X POST -F paste=@app.rb localhost:3000/new
 ```
 
 ## Development

@@ -16,22 +16,19 @@ class Pastebin
     render "src/views/paste.ecr", "src/views/layouts/paste.ecr"
   end
 
-  post "/" do |env|
-    file = env.params.files["file"].tempfile
-    generated_name = Random::Secure.urlsafe_base64 6
-    file_path = ::File.join ["files/", generated_name]
-    File.open(file_path, "w") do |f|
-      IO.copy(file, f)
-    end
-    generated_name
-  end
-
   post "/new" do |env|
-    paste = env.params.body["paste"].as(String)
     generated_name = Random::Secure.urlsafe_base64 6
     file_path = ::File.join ["files/", generated_name]
-    File.write(file_path, paste)
-    env.redirect(generated_name)
+
+    if env.params.body.has_key?("paste")
+      paste = env.params.body["paste"].as(String)
+      File.write(file_path, paste)
+      env.redirect(generated_name)
+    else
+      file = env.params.files["paste"].tempfile
+      File.open(file_path, "w") { |f| IO.copy(file, f) }
+      generated_name
+    end
   end
 
   def run
