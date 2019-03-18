@@ -26,6 +26,14 @@ class Pastebin
     generated_name
   end
 
+  post "/new" do |env|
+    paste = env.params.body["paste"].as(String)
+    generated_name = Random::Secure.urlsafe_base64 6
+    file_path = ::File.join ["files/", generated_name]
+    File.write(file_path, paste)
+    env.redirect(generated_name)
+  end
+
   def run
     Kemal.run(@port)
   end
