@@ -35,6 +35,3 @@ class Pastebin
     Kemal.run(@port)
   end
 end
-
-server = Pastebin.new
-server.run

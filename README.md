@@ -9,7 +9,7 @@ TODO: Write installation instructions here
 ## Usage
 
 ```
-crystal run src/pastebin.cr
+crystal run app.cr
 ```
 
 Add new paste by uploading a file via the command-line:
