@@ -21,16 +21,21 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/css/bootswatch-solar.min.css" media="screen">
 </head>
 <body>
-
+<div class="container">
 <form action="/new" method="post">
-    <div>
-        <label for="paste">New Paste:</label>
-        <textarea type="text" id="paste" name="paste"></textarea>
+    <fieldset>
+    <div class="form-group">
+        <label for="paste"><h1>New Paste:</h1></label>
+        <textarea class="form-control" type="text" id="paste" name="paste" rows="20" cols="50"></textarea>
     </div>
-    <button type="submit">Submit</button>
+    <button class="btn btn-primary btn-lg btn-block" type="submit">Save</button>
+    </fieldset>
 </form>
+</div>
 
 </body>
 </html>
